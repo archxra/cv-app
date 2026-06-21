@@ -1,0 +1,43 @@
+@use '../../assets/styles/variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-sm $space-lg;
+  border-radius: $radius;
+  font-family: $font-heading;
+  font-size: $fs-sm;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all $transition;
+  cursor: pointer;
+  border: 1px solid $color-dark;
+  color: $color-white;
+  background: $color-dark;
+
+  &:hover {
+    background: $color-dark-light;
+    border-color: $color-dark-light;
+  }
+
+  &--primary {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: $color-white;
+    &:hover {
+      background: $color-primary-d;
+      border-color: $color-primary-d;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid $color-white;
+    color: $color-white;
+    &:hover { background: rgba(255,255,255,0.1); }
+  }
+
+  &__icon { display: flex; align-items: center; }
+}

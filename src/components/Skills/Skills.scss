@@ -1,0 +1,124 @@
+@use '../../assets/styles/variables' as *;
+
+.skills {
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $space-lg;
+  }
+
+  &__form {
+    border: 1px solid $color-primary;
+    border-radius: $radius;
+    padding: $space-lg;
+    margin-bottom: $space-xl;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__form-row {
+    display: flex;
+    align-items: center;
+    gap: $space-lg;
+  }
+
+  &__label {
+    font-size: $fs-sm;
+    color: $color-text;
+    font-weight: 500;
+    width: 90px;
+    flex-shrink: 0;
+  }
+
+  &__input {
+    flex: 1;
+    padding: $space-sm $space-md;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    font-size: $fs-sm;
+    font-family: $font-body;
+    outline: none;
+    transition: border-color $transition;
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+
+  &__bars {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    margin-bottom: $space-sm;
+  }
+
+  &__bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__bar-track {
+    position: relative;
+    height: 28px;
+    background: $color-border;
+    border-radius: $radius;
+    overflow: hidden;
+  }
+
+  &__bar-fill {
+    height: 100%;
+    background: $color-primary;
+    border-radius: $radius;
+    transition: width 0.6s ease;
+    will-change: width;
+  }
+
+  &__bar-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 $space-md;
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $color-white;
+    pointer-events: none;
+
+    span {
+      pointer-events: none;
+    }
+
+    .skills__remove {
+      pointer-events: auto;
+      background: none;
+      border: none;
+      color: #e74c3c;
+      cursor: pointer;
+      font-size: $fs-xs;
+      padding: 2px $space-xs;
+      transition: opacity $transition;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__legend {
+    display: flex;
+    justify-content: space-between;
+    padding: $space-xs 0;
+    border-top: 1px solid $color-border;
+  }
+
+  &__legend-item {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+}

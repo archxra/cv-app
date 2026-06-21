@@ -1,0 +1,66 @@
+@use '../../assets/styles/variables' as *;
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 80px 24px 1fr;
+    gap: 0 $space-md;
+    margin-bottom: $space-lg;
+  }
+
+  &__year {
+    text-align: right;
+    padding-top: 2px;
+    time {
+      font-size: $fs-xs;
+      font-weight: 700;
+      color: $color-text-muted;
+      white-space: nowrap;
+    }
+  }
+
+  &__marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $color-primary;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  &__line {
+    width: 2px;
+    flex: 1;
+    background: $color-border;
+    margin-top: $space-xs;
+    min-height: 40px;
+  }
+
+  &__content {
+    padding-bottom: $space-lg;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $fs-base;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: $space-xs;
+  }
+
+  &__text {
+    font-size: $fs-sm;
+    color: $color-text-light;
+    line-height: 1.7;
+    margin: 0;
+  }
+}

@@ -1,0 +1,43 @@
+@use '../../assets/styles/variables' as *;
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-lg;
+    font-style: normal;
+    color: $color-text;
+    font-size: $fs-sm;
+    text-decoration: none;
+    transition: color $transition;
+
+    &[href]:hover {
+      color: $color-primary;
+      .address__icon { color: $color-primary; }
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: $color-primary;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $fs-xs;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: background $transition;
+  }
+
+  &__value {
+    line-height: 1.5;
+    word-break: break-all;
+  }
+}

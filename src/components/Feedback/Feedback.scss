@@ -1,0 +1,47 @@
+@use '../../assets/styles/variables' as *;
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+}
+
+.feedback-item {
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: $space-xl;
+
+  &__quote { margin-bottom: $space-lg; }
+
+  &__text {
+    font-size: $fs-sm;
+    color: $color-text-light;
+    line-height: 1.8;
+    font-style: italic;
+    margin: 0;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding-top: $space-md;
+    border-top: 1px solid $color-border;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid $color-primary;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $color-text;
+    font-style: normal;
+  }
+}

@@ -1,0 +1,60 @@
+@use '../../assets/styles/variables' as *;
+
+.navigation {
+  padding: $space-md 0;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-sm $space-lg;
+    color: rgba(255,255,255,0.65);
+    font-size: $fs-sm;
+    font-weight: 500;
+    transition: all $transition;
+    border-left: 3px solid transparent;
+
+    &:hover {
+      color: $color-white;
+      background: rgba(255,255,255,0.05);
+      border-left-color: $color-primary;
+    }
+
+    &--active {
+      color: $color-primary;
+      border-left-color: $color-primary;
+      font-weight: 700;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: $space-xs;
+      padding: $space-sm;
+      font-size: $fs-xs;
+      border-left: none;
+      border-bottom: 2px solid transparent;
+
+      &:hover, &--active {
+        border-left: none;
+        border-bottom-color: $color-primary;
+      }
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+}

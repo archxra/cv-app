@@ -1,0 +1,16 @@
+@use '../../assets/styles/variables' as *;
+
+.box {
+  margin-bottom: $space-3xl;
+  scroll-margin-top: 20px;
+
+  &__title {
+    @include section-title;
+  }
+
+  &__content {
+    color: $color-text-light;
+    font-size: $fs-base;
+    line-height: 1.8;
+  }
+}

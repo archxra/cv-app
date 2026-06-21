@@ -1,0 +1,58 @@
+@use '../../assets/styles/variables' as *;
+
+$panel-w: 200px;
+
+.inner {
+  display: flex;
+  min-height: 100vh;
+  background: $color-bg;
+
+  &__content {
+    margin-left: $panel-w;
+    flex: 1;
+    padding: $space-2xl $space-3xl;
+    height: 100vh;
+    overflow-y: auto;
+    transition: margin-left $transition;
+    position: relative;
+
+    &--expanded {
+      margin-left: 0;
+    }
+
+    @include mobile {
+      margin-left: 0;
+      padding: $space-lg;
+      padding-top: calc(56px + #{$space-lg});
+    }
+  }
+
+  &__section {
+    max-width: 760px;
+  }
+
+  &__back-top {
+    position: fixed;
+    bottom: $space-xl;
+    right: $space-xl;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: $color-dark;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $fs-base;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: background $transition, transform $transition;
+    z-index: 50;
+
+    &:hover {
+      background: $color-primary;
+      transform: translateY(-2px);
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use '../../assets/styles/variables' as *;
+
+.expertise {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: $space-lg;
+    padding-bottom: $space-xl;
+    border-bottom: 1px solid $color-border;
+    &:last-child { border-bottom: none; }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $space-sm;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__company {
+    font-weight: 700;
+    color: $color-text;
+    font-size: $fs-sm;
+  }
+
+  &__date {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  &__job {
+    font-family: $font-heading;
+    font-size: $fs-base;
+    font-weight: 700;
+    color: $color-primary;
+    margin-bottom: $space-sm;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $color-text-light;
+    line-height: 1.7;
+    margin: 0;
+  }
+}

@@ -1,0 +1,163 @@
+@use '../../assets/styles/variables' as *;
+
+$panel-w: 200px;
+
+.panel-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: width $transition;
+  width: $panel-w;
+
+  &--collapsed {
+    width: 0;
+
+    .panel { width: 0; }
+    .panel__inner { opacity: 0; pointer-events: none; }
+  }
+
+  @include mobile {
+    width: 0;
+  }
+}
+
+.panel {
+  width: $panel-w;
+  height: 100%;
+  background: $color-dark;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width $transition;
+  flex-shrink: 0;
+
+  @include mobile {
+    position: fixed;
+    left: -$panel-w;
+    top: 0;
+    height: 100vh;
+    transition: left $transition;
+    width: $panel-w;
+
+    &--mobile-open {
+      left: 0;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    width: $panel-w;
+    height: 100%;
+    overflow-y: auto;
+    opacity: 1;
+    transition: opacity $transition;
+
+    &::-webkit-scrollbar { width: 3px; }
+    &::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding: $space-lg;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  &__go-back {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    color: rgba(255,255,255,0.6);
+    font-size: $fs-sm;
+    transition: color $transition;
+    &:hover { color: $color-white; }
+  }
+}
+
+.panel-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: $color-primary;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $fs-xs;
+  cursor: pointer;
+  border: none;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background $transition;
+  position: absolute;
+  right: -14px;
+
+  &:hover { background: $color-primary-d; }
+
+  @include mobile { display: none; }
+}
+
+.panel-overlay {
+  display: none;
+  @include mobile {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 90;
+  }
+}
+
+.panel-mobile-bar {
+  display: none;
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: $color-dark;
+    padding: 0 $space-lg;
+    z-index: 80;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  &__name {
+    font-family: $font-heading;
+    font-size: $fs-base;
+    font-weight: 600;
+    color: $color-white;
+  }
+
+  &__toggle {
+    color: $color-white;
+    font-size: $fs-md;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $space-sm;
+  }
+}
+
+.panel__go-back {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  color: rgba(255,255,255,0.6);
+  font-size: $fs-sm;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: $font-body;
+  padding: 0;
+  transition: color $transition;
+  &:hover { color: $color-white; }
+}
